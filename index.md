@@ -1,67 +1,50 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!-->  
-<html class="no-js" lang="en"> <!--<![endif]-->
-<head>
-	<title>Shiny</title>
-	<meta name="description" content="Shiny">
-	<meta name="author" content="Ambrosio Q. Tria">
-	<meta name="generator" content="slidify" />
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=1024, user-scalable=no">
-	
-	<!-- Required stylesheet -->
-	<link rel="stylesheet" href="../../libraries/frameworks/deckjs/core/deck.core.css">
-	<link rel="stylesheet" href="../../libraries/frameworks/deckjs/extensions/goto/deck.goto.css">
-<link rel="stylesheet" href="../../libraries/frameworks/deckjs/extensions/hash/deck.hash.css">
-<link rel="stylesheet" href="../../libraries/frameworks/deckjs/extensions/menu/deck.menu.css">
-<link rel="stylesheet" href="../../libraries/frameworks/deckjs/extensions/navigation/deck.navigation.css">
-<link rel="stylesheet" href="../../libraries/frameworks/deckjs/extensions/scale/deck.scale.css">
-<link rel="stylesheet" href="../../libraries/frameworks/deckjs/extensions/status/deck.status.css">
-<!-- Style theme. More available in /themes/style/  -->
-	<link rel="stylesheet" href="../../libraries/frameworks/deckjs/themes/style/web-2.0.css">
-	
-	<!-- Transition theme. More available in /themes/transition/  -->
-	<link rel="stylesheet" href="../../libraries/frameworks/deckjs/themes/transition/fade.css">
-	<script src="../../libraries/frameworks/deckjs/modernizr.custom.js"></script>
-	
-	<!-- LOAD STYLE SHEETS -->
-	<link rel="stylesheet" href="../../libraries/highlighters/highlight.js/css/tomorrow.css">
-	
-	  
-</head>
+---
+title       : Shiny 
+subtitle    : Using Shiny for Crime Statistics
+author      : Ambrosio Q. Tria
+job         : 
+framework   : deckjs        # {io2012, html5slides, shower, dzslides, ...}
+url:
+  lib: ../../libraries
+  assets: ../../assets
+deckjs:
+  theme       : web-2.0
+  transition  : fade
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : [mathjax]     # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
 
-<body class="deck-container">
 
-  <!-- Begin slides -->
-  <section class="slide " id="slide-1">
-  <h1>Shiny</h1>
-  <h4>DEVELOPING DATA PRODUCTS</h4>
+# Shiny
 
-<p>Johns Hopkins Bloomberg School of Public Health <br>
+#### DEVELOPING DATA PRODUCTS
+Johns Hopkins Bloomberg School of Public Health <br>
 Coursera <br>
-<em>Ambrosio Q. Tria</em></p>
+*Ambrosio Q. Tria*
 
-</section>
-<section class="slide " id="slide-2">
-  <h2>Why use Shiny?</h2>
-  <ul class = "build incremental">
-<li>Interactivity captivates as opposed to static reports</li>
-<li>You want to make an impression</li>
-<li>Shiny is just cool</li>
-</ul>
+---
 
-</section>
-<section class="slide " id="slide-3">
-  <h2>The Standard, Static Way</h2>
-  <pre><code class="r">dat &lt;- read.csv(&quot;crimeStates.csv&quot;, sep=&quot;,&quot;, header = TRUE, stringsAsFactors = FALSE)
+## Why use Shiny?
+
+> * Interactivity captivates as opposed to static reports
+> * You want to make an impression
+> * Shiny is just cool
+
+---
+
+## The Standard, Static Way
+
+
+```r
+dat <- read.csv("crimeStates.csv", sep=",", header = TRUE, stringsAsFactors = FALSE)
 head(dat, 3)
-</code></pre>
+```
 
-<pre><code>##   Year Population Violent.crime.total Murder.and.nonnegligent.Manslaughter
+```
+##   Year Population Violent.crime.total Murder.and.nonnegligent.Manslaughter
 ## 1 2010    4785401               18363                                  275
 ## 2 2011    4803689               20166                                  299
 ## 3 2012    4822023               21693                                  342
@@ -77,23 +60,26 @@ head(dat, 3)
 ## 1        101.6                   248.0 Alabama
 ## 2        102.1                   282.9 Alabama
 ## 3        104.1                   311.8 Alabama
-</code></pre>
+```
 
-</section>
-<section class="slide " id="slide-4">
-  <h2>The Cool and Shiny Way</h2>
-  <pre><code class="r">require(googleVis)
-T1 &lt;- gvisTable(dat, options=list(width=&quot;100%&quot;, height=400,
-                                  page = &quot;enable&quot;))
-print(T1, &quot;chart&quot;)
-</code></pre>
+
+---
+
+## The Cool and Shiny Way
+
+
+```r
+require(googleVis)
+T1 <- gvisTable(dat, options=list(width="100%", height=400,
+                                  page = "enable"))
+print(T1, "chart")
+```
 
 <!-- Table generated in R 3.2.1 by googleVis 0.5.9 package -->
-
 <!-- Sat Jul 25 18:49:53 2015 -->
 
-<!-- jsHeader -->
 
+<!-- jsHeader -->
 <script type="text/javascript">
  
 // jsData 
@@ -2472,99 +2458,24 @@ callbacks.shift()();
 // jsFooter
 </script>
  
-
 <!-- jsChart -->  
-
 <script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartTableID427437854804"></script>
  
-
 <!-- divChart -->
-
+  
 <div id="TableID427437854804" 
   style="width: 100%; height: 400;">
 </div>
 
-<ul class = "build incremental">
-<li>You can click on any column header to sort!</li>
-<li>the data is organized into pages that you can select!</li>
-<li>and there are many more ways to use charts and format your Shiny site!</li>
-</ul>
+> * You can click on any column header to sort!
+> * the data is organized into pages that you can select!
+> * and there are many more ways to use charts and format your Shiny site!
 
-</section>
-<section class="slide " id="slide-5">
-  <h2>Go There Now!</h2>
-  <p><br><br></p>
+---
 
-<blockquote>
-<p><a href="https://ambroset.shinyapps.io/project">https://ambroset.shinyapps.io/project</a></p>
-</blockquote>
+## Go There Now!
+  
+<br><br>
+> https://ambroset.shinyapps.io/project
 
-</section>
-</body>
-  <!-- deck.navigation snippet -->
-  <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
-  <a href="#" class="deck-next-link" title="Next">&#8594;</a>
-  
-  <!-- deck.status snippet -->
-  <p class="deck-status">
-  <span class="deck-status-current"></span>
-    /
-  <span class="deck-status-total"></span>
-  </p>
-  
-  <!-- deck.goto snippet -->
-  <form action="." method="get" class="goto-form">
-  	<label for="goto-slide">Go to slide:</label>
-  	<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
-  	<datalist id="goto-datalist"></datalist>
-  	<input type="submit" value="Go">
-  </form>
-  
-  <!-- deck.hash snippet -->
-  <a href="." title="Permalink to this slide" class="deck-permalink">#</a>
-  
-  
-  <!-- Grab CDN jQuery, with a protocol relative URL; fall back to local if offline -->
-  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
-  <script>window.jQuery || document.write('<script src="../../libraries/frameworks/deckjs/jquery-1.7.min.js"><\/script>')</script>
-  
-  <!-- Add Slide Class to Build Elements -->
-  <script type='text/javascript'>
-  $('ol.build li').addClass('slide')
-  $('ul.build li').addClass('slide')
-  </script>
-  
-  <!-- Deck Core and extensions -->
-  <script src="../../libraries/frameworks/deckjs/core/deck.core.js"></script>
-  <script src="../../libraries/frameworks/deckjs/extensions/goto/deck.goto.js"></script>
-<script src="../../libraries/frameworks/deckjs/extensions/hash/deck.hash.js"></script>
-<script src="../../libraries/frameworks/deckjs/extensions/menu/deck.menu.js"></script>
-<script src="../../libraries/frameworks/deckjs/extensions/navigation/deck.navigation.js"></script>
-<script src="../../libraries/frameworks/deckjs/extensions/scale/deck.scale.js"></script>
-<script src="../../libraries/frameworks/deckjs/extensions/status/deck.status.js"></script>
-<!-- Initialize the deck -->
-  <script>
-  $(function() {
-  	$.deck('.slide');
-  });
-  </script>  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [['$','$'], ['\\(','\\)']],
-      processEscapes: true
-    }
-  });
-</script>
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script> -->
-<script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="../../libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
-</script>
-<!-- LOAD HIGHLIGHTER JS FILES -->
-<script src="../../libraries/highlighters/highlight.js/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-<!-- DONE LOADING HIGHLIGHTER JS FILES -->
- 
 
-</html>

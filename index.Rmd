@@ -1,9 +1,15 @@
 ---
 title       : Shiny 
-subtitle    : Using Shiny for Crime Satistics
+subtitle    : Using Shiny for Crime Statistics
 author      : Ambrosio Q. Tria
 job         : 
-framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+framework   : deckjs        # {io2012, html5slides, shower, dzslides, ...}
+url:
+  lib: ../../libraries
+  assets: ../../assets
+deckjs:
+  theme       : web-2.0
+  transition  : fade
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : tomorrow      # 
 widgets     : [mathjax]     # {mathjax, quiz, bootstrap}
@@ -11,42 +17,52 @@ mode        : selfcontained # {standalone, draft}
 knit        : slidify::knit2slides
 ---
 
-## Read-And-Delete Slide 1
 
-1. Edit YAML front matter
-2. Write using R Markdown
-3. Use an empty line followed by three dashes to separate slides!
+# Shiny
 
---- .class #id 
+#### DEVELOPING DATA PRODUCTS
+Johns Hopkins Bloomberg School of Public Health <br>
+Coursera <br>
+*Ambrosio Q. Tria*
 
-## Slide 2
+---
+
+## Why use Shiny?
+
+> * Interactivity captivates as opposed to static reports
+> * You want to make an impression
+> * Shiny is just cool
+
+---
+
+## The Standard, Static Way
 
 ```{r}
-data(cars)
-summary(cars)
+dat <- read.csv("crimeStates.csv", sep=",", header = TRUE, stringsAsFactors = FALSE)
+head(dat, 3)
 ```
 
 
+---
+
+## The Cool and Shiny Way
+
+```{r results='asis'}
+require(googleVis)
+T1 <- gvisTable(dat, options=list(width="100%", height=400,
+                                  page = "enable"))
+print(T1, "chart")
+```
+
+> * You can click on any column header to sort!
+> * the data is organized into pages that you can select!
+> * and there are many more ways to use charts and format your Shiny site!
 
 ---
 
-## Slide 3
-
-
-
-
-
-
-
----
-
-## Slide 4
-
-
-
-
-
-
-
+## Go There Now!
+  
+<br><br>
+> https://ambroset.shinyapps.io/project
 
 
