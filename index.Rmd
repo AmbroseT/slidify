@@ -1,12 +1,9 @@
 ---
 title       : Shiny 
-subtitle    : Using Shiny for Crime Statistics
+subtitle    : DEVELOPING DATA PRODUCTS
 author      : Ambrosio Q. Tria
 job         : 
 framework   : deckjs        # {io2012, html5slides, shower, dzslides, ...}
-url:
-  lib: ../../libraries
-  assets: ../../assets
 deckjs:
   theme       : web-2.0
   transition  : fade
