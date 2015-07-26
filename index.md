@@ -1,12 +1,9 @@
 ---
 title       : Shiny 
-subtitle    : Using Shiny for Crime Statistics
+subtitle    : DEVELOPING DATA PRODUCTS
 author      : Ambrosio Q. Tria
 job         : 
 framework   : deckjs        # {io2012, html5slides, shower, dzslides, ...}
-url:
-  lib: ../../libraries
-  assets: ../../assets
 deckjs:
   theme       : web-2.0
   transition  : fade
@@ -2467,15 +2464,16 @@ callbacks.shift()();
   style="width: 100%; height: 400;">
 </div>
 
-> * You can click on any column header to sort!
-> * the data is organized into pages that you can select!
+> * You can click on any column header to sort! (Do it now!)
+> * the data is organized into pages that you can click on! (Do it now!)
 > * and there are many more ways to use charts and format your Shiny site!
 
 ---
 
-## Go There Now!
-  
+## See Shiny in Action!
+
 <br><br>
 > https://ambroset.shinyapps.io/project
+
 
 
